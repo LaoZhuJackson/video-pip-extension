@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "琉璃宝",
+  "description": "你的视频跟跑/跟练小助手",
+  "version": "0.0.1",
+  "icons": {
+    "16": "img/icons/Cartoon-Vedio16.png",
+    "32": "img/icons/Cartoon-Vedio32.png",
+    "48": "img/icons/Cartoon-Vedio48.png",
+    "128": "img/icons/Cartoon-Vedio128.png"
+  },
+  "permissions": ["tabCapture", "activeTab", "commands"],
+  "background": {"service_worker": "background.js"},
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "commands": {
+    "play-pause": {
+      "suggested_key": { "default": "Alt+Shift+P" },
+      "description": "Play/Pause"
+    },
+    "seek-forward": {
+      "suggested_key": { "default": "Alt+Shift+Right" },
+      "description": "Forward 5s"
+    },
+    "seek-backward": {
+      "suggested_key": { "default": "Alt+Shift+Left" },
+      "description": "Backward 5s"
+    }
+  }
+}
